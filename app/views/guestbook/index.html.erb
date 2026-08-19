@@ -27,7 +27,7 @@
         <% @entries.each do |entry| %>
           <li>
             <%= md_card variant: :filled do %>
-              <p class="guestbook-entry__message"><%= simple_format(entry.message, class: "guestbook-entry__text") %></p>
+              <div class="guestbook-entry__message"><%= simple_format(entry.message, class: "guestbook-entry__text") %></div>
               <footer class="guestbook-entry__meta">
                 <span class="guestbook-entry__name"><%= material_symbol(:person, size: 20) %><%= entry.name %></span>
                 <time datetime="<%= entry.created_at.iso8601 %>"><%= entry.created_at.strftime("%b %e, %Y · %H:%M") %></time>
