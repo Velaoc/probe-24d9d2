@@ -1,0 +1,43 @@
+<% title "Sign the guestbook" %>
+
+<header class="guestbook-hero" aria-labelledby="guestbook-title">
+  <div class="guestbook-hero__inner">
+    <p class="md-section__eyebrow">probe-24d9d2</p>
+    <h1 id="guestbook-title">Sign the guestbook</h1>
+    <p>Leave a short message and it lands on the wall, newest first.</p>
+  </div>
+</header>
+
+<section class="guestbook-layout" aria-label="Guestbook">
+  <div class="guestbook-form-pane">
+    <h2 class="md-section__heading">Leave your mark</h2>
+    <%= form_with model: @entry, url: root_path, class: "guestbook-form" do |form| %>
+      <%= md_text_field(form, :name, label: "Name", hint: "Optional — defaults to Anonymous") %>
+      <%= md_text_field(form, :message, label: "Message", type: :textarea, hint: "Up to #{GuestbookEntry::MAX_MESSAGE_LENGTH} characters") %>
+      <div class="md-actions">
+        <%= md_button "Post to the wall", icon: :send, type: "submit" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="guestbook-wall" aria-live="polite">
+    <h2 class="md-section__heading">The wall</h2>
+    <% if @entries.any? %>
+      <ol class="guestbook-entries">
+        <% @entries.each do |entry| %>
+          <li>
+            <%= md_card variant: :filled do %>
+              <p class="guestbook-entry__message"><%= simple_format(entry.message, class: "guestbook-entry__text") %></p>
+              <footer class="guestbook-entry__meta">
+                <span class="guestbook-entry__name"><%= material_symbol(:person, size: 20) %><%= entry.name %></span>
+                <time datetime="<%= entry.created_at.iso8601 %>"><%= entry.created_at.strftime("%b %e, %Y · %H:%M") %></time>
+              </footer>
+            <% end %>
+          </li>
+        <% end %>
+      </ol>
+    <% else %>
+      <p class="guestbook-empty">Nobody's signed yet — be the first.</p>
+    <% end %>
+  </div>
+</section>
