@@ -1,4 +1,7 @@
 <% title "Sign the guestbook" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "guestbook", "data-turbo-track": "reload" %>
+<% end %>
 
 <header class="guestbook-hero" aria-labelledby="guestbook-title">
   <div class="guestbook-hero__inner">
