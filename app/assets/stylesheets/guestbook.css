@@ -1,0 +1,100 @@
+/* Guestbook: the product centerpiece. The wall is designed freely on top of
+   the Material chrome — frame with tokens, never build from them. */
+
+.guestbook-hero {
+  background: linear-gradient(160deg, var(--md-sys-color-primary-container), var(--md-sys-color-surface));
+  color: var(--md-sys-color-on-primary-container);
+  padding: 3.5rem 1.25rem 3rem;
+  text-align: center;
+}
+
+.guestbook-hero__inner {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.guestbook-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.guestbook-hero p {
+  margin: 0 auto;
+  max-width: 32rem;
+  opacity: 0.85;
+}
+
+.guestbook-layout {
+  display: grid;
+  grid-template-columns: minmax(18rem, 24rem) 1fr;
+  gap: 2rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  align-items: start;
+}
+
+.guestbook-form-pane {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.guestbook-entries {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.guestbook-entry__message {
+  margin: 0 0 0.75rem;
+}
+
+.guestbook-entry__text {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.guestbook-entry__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.8125rem;
+}
+
+.guestbook-entry__name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+}
+
+.guestbook-empty {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-top: 1rem;
+}
+
+/* Medium and below: stack the form above the wall. */
+@media (max-width: 839px) {
+  .guestbook-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .guestbook-form-pane {
+    position: static;
+  }
+}
