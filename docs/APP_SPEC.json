@@ -1,0 +1,28 @@
+{
+  "name": "probe-24d9d2",
+  "purpose": "One-page guestbook: visitors type a short message and see the wall of messages, newest first.",
+  "actors": [
+    "visitor"
+  ],
+  "entities": [
+    {
+      "name": "GuestbookEntry",
+      "relationships": [
+        "standalone; no user account required"
+      ]
+    }
+  ],
+  "workflows": [
+    {
+      "name": "Post a message",
+      "description": "Type a short message, submit it, and see it appear at the top of the wall"
+    },
+    {
+      "name": "Read the wall",
+      "description": "View all messages, newest first"
+    }
+  ],
+  "modules": [],
+  "integrations": [],
+  "seed_demo": "A few short sample messages so the wall has life on first load"
+}
