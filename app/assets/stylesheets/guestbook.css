@@ -1,9 +1,10 @@
 /* Guestbook: the product centerpiece. The wall is designed freely on top of
-   the Material chrome — frame with tokens, never build from them. */
+   the Material chrome — frame with tokens, never build from them. Fallback
+   colors keep the wall readable if the token sheet is ever absent. */
 
 .guestbook-hero {
-  background: linear-gradient(160deg, var(--md-sys-color-primary-container), var(--md-sys-color-surface));
-  color: var(--md-sys-color-on-primary-container);
+  background: linear-gradient(160deg, var(--md-sys-color-primary-container, #EADDFF), var(--md-sys-color-surface, #FEF7FF));
+  color: var(--md-sys-color-on-primary-container, #21005D);
   padding: 3.5rem 1.25rem 3rem;
   text-align: center;
 }
@@ -72,7 +73,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  color: var(--md-sys-color-on-surface-variant);
+  color: var(--md-sys-color-on-surface-variant, #49454F);
   font-size: 0.8125rem;
 }
 
@@ -84,7 +85,7 @@
 }
 
 .guestbook-empty {
-  color: var(--md-sys-color-on-surface-variant);
+  color: var(--md-sys-color-on-surface-variant, #49454F);
   margin-top: 1rem;
 }
 
